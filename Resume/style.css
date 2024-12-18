@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body
+    {
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(to bottom, #ffffff, #ffffff);
+        line-height: 1.5rem;
+    }
+h1, h3, h4
+{
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 2rem;
+    color:#003366;
+    
+}
+
+p
+{
+    padding: 10px 0px 10px 0px;
+    font-size: 16px;
+}
+.wrapper{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 1rem;
+    padding: 30px;
+    background: white;
+}
+.grid-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        /* Two columns: label and content */
+        gap: 20px;
+        /* Space between rows */
+        align-items: start;
+        /* Align items to the top */
+    }
+
+    .grid-item {
+        padding: 5px 0;
+        /* Spacing for grid items */
+    }
+
+    .header,
+    .skills,
+    .education,
+    .experience,
+    .contact,
+    .certification,
+    .projects
+    {
+        padding: 10px;
+    }
+
+    h2,
+    h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    .details-label {
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .details-content {
+        font-size: 16px;
+    }
+
+    .counter-number {
+    font-weight: bold;
+    color: #003366;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>HTML CSS Resume Dorrell</title>
+</head>
+<body>
+        <div class="wrapper">
+            <div class="header">
+                <h1>Dorrell Ettienne</h1>
+                <h4>Aspiring Devops Engineer</h4>
+                <p>
+                    Responsible for the smooth running of a company's IT infrastructure, DevOps engineers work with developers and
+                    operations teams to deploy and manage code changes. They also build and maintain tools and infrastructure to develop and
+                    release software apps.
+                </p>
+            </div>
+            <section class="skills">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>skills</h3>
+                    </div>
+                    <div class="grid-item">
+                        <ul>
+                            <li>Full-stack software development</li>
+                            <li>Version control</li>
+                            <li>Infrastructure as code</li>
+                            <li>Continuous integration and delivery</li>
+                            <li>Cloud services and “serverless”</li>
+                            <li>Application security</li>
+                            <li>Networking</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="experience">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Experience</h3>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Central Administration and Admissions Assistant</h4>
+                        <b>May 2024 - Current</b>
+                        <p>blah blah blah</p>
+            
+                        <h4>Central Administration and Admissions Assistant</h4>
+                        <b>May 2024 - Current</b>
+                        <p>blah blah blah</p>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="certification">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Certification</h3>
+                    </div>
+                    <div class="grid-item">
+                        <b>AWS Certified Cloud Practitioner</b>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="projects">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Projects</h3>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Cloud Resume Challenge</h4>
+                        <b>May 2024 - Current</b>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="education">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>education</h3>
+                    </div>
+                    <div class="grid-item">
+                        <h4>Degree in Music</h4>
+                        <p>description of degree in music | University of Kent | 2013 - 2016</p>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="contact">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Contact</h3>
+                </div>
+                <div class="grid-item">
+                    <p>
+                        Email: dorrellettienne@gmail.com <br>
+                        Website: www.dorrellettienne.com <br>
+                        Address: 3 Eternit Walk, Stevenage Road, Fulham, London, SW6 6NL
+                    </p>
+
+                   
+
+                    
+                </div>  
+                
+            </div>
+            </section>
+        </div>
+
+        </a> <a class="counter-number"></a>
+
+        <script>
+            const counter = document.querySelector(".counter-number");
+
+                async function updateCounter() {
+                    try {
+                        let response = await fetch(
+                            "https://ya7hclrsbca7wa6rjutthufihy0yhecr.lambda-url.eu-west-2.on.aws/"
+                        );
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+
+                        let data = await response.json();
+                        console.log("Views:", data);
+
+                        counter.innerHTML = `Views: ${data}`;
+                    } catch (error) {
+                        console.error("Fetch failed:", error);
+                        counter.innerHTML = "Error fetching views";
+                    }
+                }
+
+                updateCounter();
+
+        </script>
+ 
+</body>
+</html>
+
