@@ -31,7 +31,7 @@
   <circle cx="60" cy="900" r="190" fill="#e69a79" opacity="0.12"/>
 
   <text x="50" y="60" class="page-title">AWS Cloud Resume Architecture</text>
-  <text x="50" y="92" class="page-subtitle">Static delivery, a serverless visitor counter, infrastructure as code, and automated deployment</text>
+  <text x="50" y="92" class="page-subtitle">Static resume site with a serverless visitor counter</text>
 
   <!-- AWS boundary -->
   <rect x="235" y="130" width="915" height="580" rx="26" fill="#ffffff" stroke="#91aaa5" stroke-width="3" filter="url(#shadow)"/>
@@ -61,8 +61,7 @@
     <rect x="325" y="317" width="62" height="62" rx="16" fill="#8c4fff"/>
     <text x="356" y="349" class="icon-text">CF</text>
     <text x="411" y="333" class="node-title">CloudFront</text>
-    <text x="411" y="360" class="node-copy">HTTPS and CDN</text>
-    <text x="411" y="385" class="node-copy">Security headers</text>
+    <text x="411" y="360" class="node-copy">HTTPS CDN</text>
   </g>
 
   <!-- S3 -->
@@ -71,8 +70,7 @@
     <rect x="785" y="317" width="62" height="62" rx="16" fill="#4aa646"/>
     <text x="816" y="349" class="icon-text">S3</text>
     <text x="871" y="333" class="node-title">Amazon S3</text>
-    <text x="871" y="360" class="node-copy">Private static origin</text>
-    <text x="871" y="385" class="node-copy">HTML, CSS and JavaScript</text>
+    <text x="871" y="360" class="node-copy">Private site files</text>
   </g>
 
   <!-- Function URL -->
@@ -81,8 +79,7 @@
     <rect x="297" y="532" width="58" height="58" rx="15" fill="#d96d4b"/>
     <text x="326" y="562" class="icon-text" style="font-size:16px">URL</text>
     <text x="375" y="548" class="node-title">Function URL</text>
-    <text x="375" y="577" class="node-copy">Public GET API</text>
-    <text x="297" y="614" class="node-copy">CORS-enabled endpoint</text>
+    <text x="375" y="577" class="node-copy">HTTPS GET API</text>
   </g>
 
   <!-- Lambda -->
@@ -91,8 +88,7 @@
     <rect x="617" y="532" width="58" height="58" rx="15" fill="#ed8b00"/>
     <text x="646" y="562" class="icon-text">&#955;</text>
     <text x="695" y="548" class="node-title">AWS Lambda</text>
-    <text x="695" y="577" class="node-copy">Python 3.12</text>
-    <text x="617" y="614" class="node-copy">Atomic counter handler</text>
+    <text x="695" y="577" class="node-copy">Python counter</text>
   </g>
 
   <!-- DynamoDB -->
@@ -101,25 +97,24 @@
     <rect x="937" y="532" width="58" height="58" rx="15" fill="#4265cf"/>
     <text x="966" y="562" class="icon-text" style="font-size:16px">DB</text>
     <text x="1015" y="548" class="node-title">DynamoDB</text>
-    <text x="1015" y="577" class="node-copy">On-demand</text>
-    <text x="937" y="614" class="node-copy">Encrypted counter table</text>
+    <text x="1015" y="577" class="node-copy">Visit count</text>
   </g>
 
   <!-- Runtime arrows -->
   <path d="M200 315 C235 315 258 351 300 351" class="flow"/>
-  <text x="249" y="316" class="edge-label">HTTPS</text>
+  <text x="249" y="316" class="edge-label">HTTPS site</text>
 
   <path d="M600 351 H760" class="flow"/>
   <text x="680" y="337" class="edge-label">private origin</text>
 
-  <path d="M200 353 C235 353 235 568 275 568" class="flow"/>
-  <text x="225" y="462" class="edge-label">count</text>
+  <path d="M115 388 V568 H275" class="flow"/>
+  <text x="195" y="552" class="edge-label">HTTPS counter</text>
 
   <path d="M520 568 H595" class="flow"/>
-  <text x="558" y="554" class="edge-label">GET</text>
+  <text x="558" y="554" class="edge-label">request</text>
 
   <path d="M840 568 H915" class="flow"/>
-  <text x="878" y="554" class="edge-label">ADD</text>
+  <text x="878" y="554" class="edge-label">update</text>
 
   <!-- External automation row -->
   <text x="30" y="762" class="section-label">DELIVERY AND PROVISIONING</text>
@@ -138,7 +133,7 @@
     <circle cx="410" cy="851" r="24" fill="#24292f"/>
     <text x="410" y="852" class="icon-text" style="font-size:13px">GA</text>
     <text x="450" y="848" class="node-title">GitHub Actions</text>
-    <text x="450" y="875" class="node-copy">Validate and deploy</text>
+    <text x="450" y="875" class="node-copy">Test and deploy</text>
   </g>
 
   <g filter="url(#shadow)">
@@ -146,7 +141,7 @@
     <rect x="848" y="829" width="48" height="48" rx="13" fill="#7b42bc"/>
     <text x="872" y="854" class="icon-text" style="font-size:14px">TF</text>
     <text x="919" y="848" class="node-title">Terraform</text>
-    <text x="919" y="875" class="node-copy">Provisions AWS stack</text>
+    <text x="919" y="875" class="node-copy">Builds AWS stack</text>
   </g>
 
   <!-- Automation arrows -->
@@ -154,8 +149,8 @@
   <text x="308" y="848" class="edge-label">push</text>
 
   <path d="M515 810 V745 H910 V416" class="flow"/>
-  <text x="704" y="731" class="edge-label">sync site and invalidate cache</text>
+  <text x="704" y="731" class="edge-label">deploy site</text>
 
   <path d="M955 810 V680" class="provision"/>
-  <text x="1052" y="748" class="edge-label">infrastructure as code</text>
+  <text x="1052" y="748" class="edge-label">provision</text>
 </svg>
