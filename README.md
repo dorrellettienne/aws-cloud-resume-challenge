@@ -17,7 +17,7 @@ The live AWS infrastructure is currently offline, so the custom domain may not l
 
 ## Architecture
 
-![AWS Cloud Resume architecture](docs/cloud-resume-architecture-v4.svg)
+![AWS Cloud Resume architecture](docs/cloud-resume-architecture-v5.svg)
 
 ## How It Works
 

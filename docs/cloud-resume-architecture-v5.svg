@@ -160,9 +160,9 @@
   <rect x="281" y="822" width="54" height="26" rx="8" class="edge-pill"/>
   <text x="308" y="841" class="edge-label">Push</text>
 
-  <path d="M515 810 V745 H910 V419" class="flow"/>
-  <rect x="594" y="704" width="220" height="26" rx="8" class="edge-pill"/>
-  <text x="704" y="723" class="edge-label">Sync site and invalidate cache</text>
+  <path d="M515 810 V670 H1140 V351 H1060" class="flow"/>
+  <rect x="620" y="638" width="220" height="26" rx="8" class="edge-pill"/>
+  <text x="730" y="657" class="edge-label">Sync site and invalidate cache</text>
 
   <path d="M955 810 V680" class="provision"/>
   <rect x="970" y="724" width="166" height="26" rx="8" class="edge-pill"/>
