@@ -1,5 +1,7 @@
 # AWS Cloud Resume Challenge
 
+**Serverless AWS Web Application**
+
 [![Validate](https://github.com/dorrellettienne/aws-cloud-resume-challenge/actions/workflows/validate.yml/badge.svg)](https://github.com/dorrellettienne/aws-cloud-resume-challenge/actions/workflows/validate.yml)
 
 This project is a cloud-hosted resume website built with AWS. It started as the AWS Cloud Resume Challenge and was expanded into a small serverless application with infrastructure, testing, and deployment automation.
