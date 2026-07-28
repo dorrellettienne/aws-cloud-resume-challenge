@@ -1,0 +1,23 @@
+# Terraform working files and local state
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+.terraformrc
+terraform.rc
+
+# Generated Lambda packages
+infra/lambda/*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Local editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,72 @@
+name: Deploy Resume
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "Resume/**"
+      - ".github/workflows/deploy.yml"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: resume-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: ${{ vars.AWS_DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+
+      - name: Build deployment directory
+        env:
+          COUNTER_API_URL: ${{ vars.COUNTER_API_URL }}
+        run: |
+          cp -R Resume .deploy
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          counter_url = os.environ["COUNTER_API_URL"]
+          config = "window.CLOUD_RESUME_CONFIG = {\\n"
+          config += f"    counterUrl: {json.dumps(counter_url)}\\n"
+          config += "};\\n"
+          Path(".deploy/config.js").write_text(config, encoding="utf-8")
+          PY
+
+      - name: Upload static site
+        run: |
+          aws s3 sync .deploy/ "s3://${{ vars.AWS_S3_BUCKET }}" \
+            --delete \
+            --cache-control "public,max-age=300" \
+            --only-show-errors
+          aws s3 cp .deploy/index.html "s3://${{ vars.AWS_S3_BUCKET }}/index.html" \
+            --cache-control "no-cache" \
+            --content-type "text/html; charset=utf-8" \
+            --only-show-errors
+          aws s3 cp .deploy/config.js "s3://${{ vars.AWS_S3_BUCKET }}/config.js" \
+            --cache-control "no-store" \
+            --content-type "text/javascript; charset=utf-8" \
+            --only-show-errors
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}" \
+            --paths "/*"
