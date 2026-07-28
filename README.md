@@ -10,24 +10,7 @@ A serverless resume application built with AWS, Terraform, Python, and GitHub Ac
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    visitor["Visitor"] --> cloudfront["Amazon CloudFront<br>HTTPS and CDN"]
-    cloudfront --> s3["Private Amazon S3 bucket<br>HTML, CSS, and JavaScript"]
-    s3 --> browser["Resume in the browser"]
-    browser --> functionUrl["AWS Lambda Function URL"]
-    functionUrl --> lambda["Python Lambda<br>Atomic counter update"]
-    lambda --> dynamodb["Amazon DynamoDB<br>Visitor count"]
-
-    terraform["Terraform"] -. provisions .-> cloudfront
-    terraform -. provisions .-> s3
-    terraform -. provisions .-> functionUrl
-    terraform -. provisions .-> lambda
-    terraform -. provisions .-> dynamodb
-
-    github["GitHub Actions"] -. validates and deploys .-> s3
-    github -. invalidates cache .-> cloudfront
-```
+![AWS Cloud Resume architecture](docs/aws-architecture.svg)
 
 ### Request flow
 
