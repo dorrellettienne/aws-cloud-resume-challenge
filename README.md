@@ -6,8 +6,6 @@ A serverless resume application built with AWS, Terraform, Python, and GitHub Ac
 
 > **Current status:** The AWS infrastructure and custom domain are offline. The application can still be run locally, and the Terraform configuration is ready to create a new deployment.
 
-![Resume site preview](docs/resume-preview.png)
-
 ## Architecture
 
 ![AWS Cloud Resume architecture](docs/aws-architecture.svg)
