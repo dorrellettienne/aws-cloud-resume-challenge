@@ -107,7 +107,7 @@
   </g>
 
   <!-- Runtime arrows -->
-  <path d="M200 315 C235 315 258 351 300 351" class="flow"/>
+  <path d="M200 315 H250 V351 H300" class="flow"/>
   <rect x="217" y="282" width="64" height="26" rx="8" class="edge-pill"/>
   <text x="249" y="301" class="edge-label">HTTPS</text>
 
